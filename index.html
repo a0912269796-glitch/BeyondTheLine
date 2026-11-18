@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>界線之外｜劇情推理解謎遊戲</title>
+
+  <!-- 連接 CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ===== 遊戲主選單 ===== -->
+  <section id="main-menu">
+
+    <h1>界線之外</h1>
+
+    <p>每一條界線，都有值得被聽見的故事。</p>
+
+    <button id="start-btn">
+      開始遊戲
+    </button>
+
+    <button id="about-btn">
+      遊戲說明
+    </button>
+
+  </section>
+
+
+  <!-- ===== 劇情畫面 ===== -->
+  <section id="game-screen" hidden>
+
+    <!-- 上方資訊 -->
+    <header>
+      <h2 id="chapter-title">第一章：未讀訊息</h2>
+
+      <button id="evidence-btn">
+        證據欄
+      </button>
+    </header>
+
+
+    <!-- 場景區域 -->
+    <main id="scene">
+
+      <div id="background">
+        <!-- 未來放場景背景 -->
+      </div>
+
+      <div id="character">
+        <!-- 未來放角色圖片 -->
+      </div>
+
+    </main>
+
+
+    <!-- 對話區域 -->
+    <section id="dialogue-box">
+
+      <h3 id="speaker-name">旁白</h3>
+
+      <p id="dialogue-text">
+        故事即將開始……
+      </p>
+
+    </section>
+
+
+    <!-- 選項區域 -->
+    <section id="choices">
+      <!-- JavaScript 會產生選項按鈕 -->
+    </section>
+
+  </section>
+
+
+  <!-- ===== 證據欄 ===== -->
+  <aside id="evidence-panel" hidden>
+
+    <h2>案件證據</h2>
+
+    <ul id="evidence-list">
+      <!-- 未來顯示已取得的證據 -->
+    </ul>
+
+    <button id="close-evidence-btn">
+      返回遊戲
+    </button>
+
+  </aside>
+
+
+  <!-- ===== 遊戲說明 ===== -->
+  <section id="about-screen" hidden>
+
+    <h2>遊戲說明</h2>
+
+    <p>
+      《界線之外》是一款以跟蹤騷擾防制為主題的
+      劇情選擇與推理解謎遊戲。
+    </p>
+
+    <p>
+      玩家將透過不同角色的視角，
+      蒐集線索、分析事件，
+      並了解相關法律知識。
+    </p>
+
+    <button id="back-menu-btn">
+      返回主選單
+    </button>
+
+  </section>
+
+
+  <!-- 連接 JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
