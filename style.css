@@ -1,0 +1,330 @@
+
+/* =====================================
+   界線之外 Beyond the Line
+   第一版遊戲樣式
+===================================== */
+
+/* ===== 1. 全域設定 ===== */
+
+:root {
+  --bg: #101c23;
+  --panel: #1d3038;
+  --primary: #a8dfc0;
+  --primary-hover: #7bcda1;
+  --text: #f3f6f5;
+  --muted: #b5c6c9;
+  --border: #45616a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: var(--bg);
+  color: var(--text);
+
+  font-family:
+    "Microsoft JhengHei",
+    "Noto Sans TC",
+    sans-serif;
+}
+
+/* 隱藏尚未開啟的遊戲畫面 */
+[hidden] {
+  display: none !important;
+}
+
+/* ===== 2. 共用按鈕 ===== */
+
+button {
+  padding: 12px 24px;
+
+  background: var(--primary);
+  color: #10231d;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+/* ===== 3. 遊戲主選單 ===== */
+
+#main-menu {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+  padding: 24px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(10, 25, 32, 0.75),
+      rgba(10, 25, 32, 0.95)
+    ),
+    #243d45;
+}
+
+#main-menu h1 {
+  margin: 0;
+
+  font-size: clamp(40px, 8vw, 72px);
+  letter-spacing: 8px;
+
+  color: var(--primary);
+}
+
+#main-menu p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+#main-menu button {
+  width: min(280px, 100%);
+}
+
+/* ===== 4. 遊戲主畫面 ===== */
+
+#game-screen {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#game-screen header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 16px;
+  padding: 16px 24px;
+
+  background: #172930;
+  border-bottom: 1px solid var(--border);
+}
+
+#chapter-title {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* ===== 5. 場景區域 ===== */
+
+#scene {
+  position: relative;
+
+  flex: 1;
+  min-height: 280px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #29434d,
+      #14232d
+    );
+
+  overflow: hidden;
+}
+
+#background {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+}
+
+#character {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* ===== 6. 劇情對話框 ===== */
+
+#dialogue-box {
+  width: min(900px, 94%);
+
+  margin: 20px auto 10px;
+  padding: 24px;
+
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+#speaker-name {
+  margin: 0 0 12px;
+
+  color: var(--primary);
+  font-size: 20px;
+}
+
+#dialogue-text {
+  margin: 0;
+
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+/* ===== 7. 劇情選項 ===== */
+
+#choices {
+  width: min(900px, 94%);
+
+  margin: 10px auto 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+}
+
+#choices button {
+  width: 100%;
+  max-width: 600px;
+
+  text-align: left;
+
+  background: #29434a;
+  color: white;
+
+  border: 1px solid var(--border);
+}
+
+#choices button:hover {
+  background: #365b5a;
+  border-color: var(--primary);
+}
+
+/* ===== 8. 證據欄 ===== */
+
+#evidence-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: min(400px, 100%);
+  height: 100vh;
+
+  padding: 30px 24px;
+
+  background: #1b3037;
+  border-left: 2px solid var(--primary);
+
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+
+  z-index: 100;
+
+  overflow-y: auto;
+}
+
+#evidence-panel h2 {
+  color: var(--primary);
+}
+
+#evidence-list {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+#close-evidence-btn {
+  margin-top: 20px;
+}
+
+/* ===== 9. 遊戲說明 ===== */
+
+#about-screen {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px;
+
+  text-align: center;
+}
+
+#about-screen h2 {
+  color: var(--primary);
+  font-size: 32px;
+}
+
+#about-screen p {
+  max-width: 650px;
+
+  font-size: 18px;
+  line-height: 1.9;
+
+  color: var(--muted);
+}
+
+/* ===== 10. 手機版調整 ===== */
+
+@media (max-width: 600px) {
+
+  #main-menu h1 {
+    letter-spacing: 4px;
+  }
+
+  #game-screen header {
+    padding: 12px;
+  }
+
+  #chapter-title {
+    font-size: 16px;
+  }
+
+  #scene {
+    min-height: 220px;
+  }
+
+  #dialogue-box {
+    padding: 18px;
+  }
+
+  #dialogue-text {
+    font-size: 16px;
+  }
+
+  #choices button {
+    font-size: 15px;
+  }
+}
